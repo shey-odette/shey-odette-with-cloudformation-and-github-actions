@@ -2,7 +2,7 @@ Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: cart-static-website-bucket
+      BucketName: vala-static-website-bucket
       PublicAccessBlockConfiguration:
           BlockPublicAcls: false
       OwnershipControls:

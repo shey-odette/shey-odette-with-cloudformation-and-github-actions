@@ -17,10 +17,10 @@ jobs:
       run: |
         aws cloudformation deploy \
           --template-file ./single-tier-app.yaml \
-          --stack-name great-stack \
+          --stack-name cart-stack \
           --capabilities CAPABILITY_NAMED_IAM \
           --parameter-overrides \
-            S3BucketName=cart-static-website-bucket \
+            S3BucketName=vala-static-website-bucket \
           --region us-east-1
     - name: Sync with S3 Bucket
       env:
@@ -28,5 +28,5 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: us-east-1
       run: |
-        aws s3 sync . s3://cart-static-website-bucket/ --exclude "*" --include "index.html" --region us-east-1
+        aws s3 sync . s3://vala-static-website-bucket/ --exclude "*" --include "index.html" --region us-east-1
 
